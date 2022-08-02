@@ -109,6 +109,10 @@ class PriorityQueue<T> {
   get items() {
     return this.queue;
   }
+
+  get size() {
+    return this.queue.length;
+  }
 }
 
 export { PriorityQueue };
