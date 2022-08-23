@@ -36,10 +36,22 @@ function pacificAtlantic(heights: number[][]): number[][] {
   bfs(heights, pacificResult, pacificQueue, pacificVisited);
   bfs(heights, atlanticResult, atlanticQueue, atlanticVisited);
 
-  // TODO: find the intersection of points within result
-  // I know how to do this but I don't want to do it. It's boring.
+  const intersection: number[][] = [];
+  const hashes = new Set<string>(
+    pacificResult.map((result) => `${result[0]},${result[1]}`)
+  );
+  const resultHashes = new Set<string>();
 
-  return [];
+  for (const atlantic of atlanticResult) {
+    const atlanticHash = `${atlantic[0]},${atlantic[1]}`;
+
+    if (hashes.has(atlanticHash) && !resultHashes.has(atlanticHash)) {
+      resultHashes.add(atlanticHash);
+      intersection.push(atlantic);
+    }
+  }
+
+  return intersection;
 }
 
 const DIRECTIONS: [number, number][] = [
