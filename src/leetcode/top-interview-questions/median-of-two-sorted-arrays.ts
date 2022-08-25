@@ -42,4 +42,4 @@ function bruteForce(a: number[], b: number[]): number {
     : (merged[mid] + merged[mid - 1]) / 2;
 }
 
-export { findMedianSortedArrays };
+export { findMedianSortedArrays, bruteForce };
