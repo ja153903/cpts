@@ -3,8 +3,6 @@ const MODULO = Math.pow(10, 9) + 7;
 function threeSumMulti(arr: number[], target: number): number {
   let count = 0;
 
-  arr.sort((a, b) => a - b);
-
   // we can use a brute force approach first
   // this takes O(n^3) time so not the best solution here
   // since we get a time exceeded limit error
