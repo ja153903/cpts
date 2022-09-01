@@ -13,20 +13,28 @@ function fullJustify(words: string[], maxWidth: number): string[] {
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
 
-    if (isWordEligibleForCurrentLine(currentLine, word, maxWidth)) {
+    const currentBufferSize = getCurrentBufferSize(currentLine);
+
+    if (
+      isWordEligibleForCurrentLine(
+        currentLine,
+        word,
+        maxWidth,
+        currentBufferSize
+      )
+    ) {
       currentLine.push(word);
     } else {
-      if (i !== words.length - 1) {
-        // we should push the current line to our result array, but we should format it first
-        const justified = justifyLine(currentLine, maxWidth);
-        currentLine = [word];
+      // we should push the current line to our result array, but we should format it first
+      const justified = justifyLine(currentLine, maxWidth, currentBufferSize);
+      currentLine = [word];
 
-        result.push(justified);
-      } else {
-        const leftJustified = leftJustifyLine(currentLine, maxWidth);
-        result.push(leftJustified);
-      }
+      result.push(justified);
     }
+  }
+
+  if (currentLine.length) {
+    result.push(leftJustifyLine(currentLine, maxWidth));
   }
 
   return result;
@@ -35,12 +43,9 @@ function fullJustify(words: string[], maxWidth: number): string[] {
 function isWordEligibleForCurrentLine(
   currentLine: string[],
   word: string,
-  maxWidth: number
+  maxWidth: number,
+  currentBufferSize: number
 ) {
-  const currentBufferSize = currentLine.reduce(
-    (acc, word) => acc + word.length,
-    0
-  );
   const minimumNumberOfSpaces = currentLine.length - 1;
 
   const minimumNewBufferSize =
@@ -53,9 +58,42 @@ function isWordEligibleForCurrentLine(
   return true;
 }
 
-// TODO: Implement this function; Ideally this will be the crux of the problem
-function justifyLine(currentLine: string[], maxWidth: number): string {
-  return '';
+function justifyLine(
+  currentLine: string[],
+  maxWidth: number,
+  currentBufferSize: number
+): string {
+  // when we're trying to justify a line, we should figure out if we can have an even
+  // number of spaces between each word.
+  // Suppose the current line is [jaime, is, valorant] and maxWidth = 50
+  // then the maxWidth - currentBufferSize is the number of spaces we need
+  let justified = '';
+  const numSpaces = maxWidth - currentBufferSize;
+  const numWords = currentLine.length;
+
+  if (numWords === 1) {
+    return `${currentLine[0]}${' '.repeat(numSpaces)}`;
+  }
+
+  const spacesBetween = Math.floor(numSpaces / (numWords - 1));
+  let remainingSpaces = numSpaces % (numWords - 1);
+
+  // we should distribute the remaining spaces among the number of words
+
+  const spacesToAdd = ' '.repeat(spacesBetween);
+
+  for (let i = 0; i < numWords; i++) {
+    if (remainingSpaces > 0) {
+      justified += `${currentLine[i]}${spacesToAdd}${' '}`;
+      remainingSpaces--;
+    } else if (i === numWords - 1) {
+      justified += currentLine[i];
+    } else {
+      justified += `${currentLine[i]}${spacesToAdd}`;
+    }
+  }
+
+  return justified;
 }
 
 function leftJustifyLine(currentLine: string[], maxWidth: number): string {
@@ -67,6 +105,10 @@ function leftJustifyLine(currentLine: string[], maxWidth: number): string {
   }
 
   return lineAsStr;
+}
+
+function getCurrentBufferSize(currentLine: string[]): number {
+  return currentLine.reduce((acc, word) => acc + word.length, 0);
 }
 
 export { fullJustify };
