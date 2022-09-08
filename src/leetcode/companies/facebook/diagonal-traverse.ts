@@ -1,5 +1,10 @@
 function findDiagonalOrder(mat: number[][]): number[] {
-  return [] as number[];
+  const result = [] as number[];
+
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  return result;
 }
 
 export { findDiagonalOrder };
