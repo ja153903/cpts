@@ -1,3 +1,9 @@
+/**
+ * TreeNode is a basic data structure simulating
+ * a node in a binary tree
+ *
+ * Here we assume that the value is only a number
+ */
 export class TreeNode {
   val: number;
   left: TreeNode | null;
