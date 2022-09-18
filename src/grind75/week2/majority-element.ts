@@ -5,17 +5,16 @@ function majorityElement(nums: number[]): number {
     freq.set(num, (freq.get(num) ?? 0) + 1);
   }
 
-  let majorityCount = 0;
-  let majorityKey = -1;
+  const MAJORITY = Math.floor(nums.length / 2);
 
   for (const [key, count] of freq.entries()) {
-    if (count > majorityCount) {
-      majorityCount = count;
-      majorityKey = key;
+    if (count >= MAJORITY) {
+      return key;
     }
   }
 
-  return majorityKey;
+  // realistically, this should never happen
+  return -1;
 }
 
 export { majorityElement };
