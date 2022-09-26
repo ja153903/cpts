@@ -25,7 +25,7 @@ function canPartition(nums: number[]): boolean {
 
   dp[0][0] = true;
 
-  // when sum is 0, all vlaues up to index i can be split to
+  // when sum is 0, all values up to index i can be split to
   // find the solution
   for (let i = 1; i < n + 1; i++) {
     dp[i][0] = true;
