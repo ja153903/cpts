@@ -18,7 +18,7 @@ function canPartition(nums: number[]): boolean {
   sum /= 2;
 
   const n = nums.length;
-  const dp = new Array<Array<boolean>>();
+  const dp: boolean[][] = [];
   for (let i = 0; i < n + 1; i++) {
     dp.push(new Array<boolean>(sum + 1).fill(false));
   }

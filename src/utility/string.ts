@@ -50,5 +50,9 @@ export function isLower(ch: string): boolean {
  * isAlnum returns whether the character is either an alphabetic or numeric character
  */
 export function isAlnum(ch: string): boolean {
-  return isDigit(ch) || isLower(ch) || isUpper(ch);
+  return isDigit(ch) || isAlpha(ch);
+}
+
+export function isAlpha(ch: string): boolean {
+  return isLower(ch) || isUpper(ch);
 }
