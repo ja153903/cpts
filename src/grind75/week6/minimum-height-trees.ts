@@ -7,7 +7,6 @@ function findMinHeightTrees(n: number, edges: number[][]): number[] {
 
   const result: number[] = new Array<number>(n).fill(Number.POSITIVE_INFINITY);
 
-  // TODO: This will timeout. We should find another solution for this problem.
   for (let i = 0; i < n; i++) {
     // find the height of each as root
     const visited = new Set<number>();
