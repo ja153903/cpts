@@ -1,4 +1,4 @@
-export class UnionFind {
+class UnionFind {
   parents: Array<number>;
   rank: Array<number>;
   size: number;
@@ -41,3 +41,5 @@ export class UnionFind {
     return uniqueParents.size;
   }
 }
+
+export { UnionFind };
