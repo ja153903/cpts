@@ -1,6 +1,4 @@
-// TODO: Solve this problem
 function maxProfit(prices: number[]): number {
-  // this might be a greedy problem
   let minBuy = prices[0];
   let profit = 0;
 
