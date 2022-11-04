@@ -1,3 +1,7 @@
+/**
+ * isVowel determines whether the character exists as a vowel
+ * whether that's lowercase or uppercase.
+ */
 function isVowel(ch: string): boolean {
   return 'aeiouAEIOU'.includes(ch);
 }
