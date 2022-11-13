@@ -98,7 +98,7 @@ class PriorityQueue<T> {
     items: T[],
     comparator: (a: T, b: T) => boolean
   ): PriorityQueue<T> {
-    const priorityQueue = new PriorityQueue(comparator);
+    const priorityQueue = new PriorityQueue<T>(comparator);
     for (const item of items) {
       priorityQueue.insert(item);
     }
