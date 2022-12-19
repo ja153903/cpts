@@ -1,19 +1,19 @@
 function isValid(s: string): boolean {
-   const stack: string[] = [];
+  const stack: string[] = [];
 
-   for (const ch of s) {
-      if (ch === '(') {
-         stack.push(')');
-      } else if (ch === '[') {
-         stack.push(']');
-      } else if (ch === '{') {
-         stack.push('}');
-      } else if (!stack.length || stack.pop() !== ch) {
-         return false;
-      }
-   }
+  for (const ch of s) {
+    if (ch === '(') {
+      stack.push(')');
+    } else if (ch === '[') {
+      stack.push(']');
+    } else if (ch === '{') {
+      stack.push('}');
+    } else if (!stack.length || stack.pop() !== ch) {
+      return false;
+    }
+  }
 
-   return stack.length === 0;
+  return stack.length === 0;
 }
 
 export { isValid };

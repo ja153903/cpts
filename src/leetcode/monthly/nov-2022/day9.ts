@@ -12,26 +12,26 @@
  *
  */
 class StockSpanner {
-   stack: [number, number][];
+  stack: [number, number][];
 
-   constructor() {
-      this.stack = [];
-   }
+  constructor() {
+    this.stack = [];
+  }
 
-   next(price: number): number {
-      let count = 1;
+  next(price: number): number {
+    let count = 1;
 
-      while (this.stack.length && this.stack.at(-1)![0] <= price) {
-         // if the top of the stack is less than or equal to the price
-         // then we should pop the stack
-         const [_price, prevCount] = this.stack.pop()!;
-         count += prevCount;
-      }
+    while (this.stack.length && this.stack.at(-1)![0] <= price) {
+      // if the top of the stack is less than or equal to the price
+      // then we should pop the stack
+      const [_price, prevCount] = this.stack.pop()!;
+      count += prevCount;
+    }
 
-      this.stack.push([price, count]);
+    this.stack.push([price, count]);
 
-      return count;
-   }
+    return count;
+  }
 }
 
 export { StockSpanner };

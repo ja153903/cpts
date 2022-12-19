@@ -2,9 +2,9 @@
 const MOD = Math.pow(10, 9) + 7;
 
 function kInversePairs(n: number, k: number): number {
-   let result = 0;
+  let result = 0;
 
-   return result % MOD;
+  return result % MOD;
 }
 
 /**

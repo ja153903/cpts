@@ -1,17 +1,17 @@
 import ListNode from './node';
 
 function reverseList(head: ListNode | null): ListNode | null {
-   let prev: ListNode | null = null;
-   let curr: ListNode | null = head;
+  let prev: ListNode | null = null;
+  let curr: ListNode | null = head;
 
-   while (curr !== null) {
-      const next = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = next;
-   }
+  while (curr !== null) {
+    const next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
 
-   return prev;
+  return prev;
 }
 
 export { reverseList };

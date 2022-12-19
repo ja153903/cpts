@@ -1,20 +1,20 @@
 import { PriorityQueue } from '~/leetcode/data-structures/priority-queue';
 
 function lastStoneWeight(stones: number[]): number {
-   const pq = PriorityQueue.heapify<number>(stones, (a, b) => a > b);
+  const pq = PriorityQueue.heapify<number>(stones, (a, b) => a > b);
 
-   while (pq.size > 1) {
-      const first = pq.remove() as number;
-      const second = pq.remove() as number;
+  while (pq.size > 1) {
+    const first = pq.remove() as number;
+    const second = pq.remove() as number;
 
-      if (first === second) {
-         continue;
-      }
+    if (first === second) {
+      continue;
+    }
 
-      pq.insert(first - second);
-   }
+    pq.insert(first - second);
+  }
 
-   return pq.remove() as number;
+  return pq.remove() as number;
 }
 
 export { lastStoneWeight };

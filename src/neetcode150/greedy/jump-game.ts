@@ -5,20 +5,20 @@
  * Return true if you can reach the last index, or false otherwise.
  */
 function canJump(nums: number[]): boolean {
-   let reach = 0;
-   let i = 0;
+  let reach = 0;
+  let i = 0;
 
-   for (; i < nums.length; i++) {
-      // if the index is greater than the reach we've found
-      // then we know we can't go any further
-      if (i > reach) {
-         return false;
-      }
+  for (; i < nums.length; i++) {
+    // if the index is greater than the reach we've found
+    // then we know we can't go any further
+    if (i > reach) {
+      return false;
+    }
 
-      reach = Math.max(reach, i + nums[i]);
-   }
+    reach = Math.max(reach, i + nums[i]);
+  }
 
-   return reach >= i - 1;
+  return reach >= i - 1;
 }
 
 export { canJump };

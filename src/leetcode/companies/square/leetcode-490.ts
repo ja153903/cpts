@@ -1,7 +1,7 @@
 function hasPath(
-   maze: number[][],
-   start: number[],
-   destination: number[]
+  maze: number[][],
+  start: number[],
+  destination: number[]
 ): boolean {}
 
 export { hasPath };

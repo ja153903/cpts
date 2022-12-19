@@ -1,5 +1,5 @@
 function candyCrush(board: number[][]): number[][] {
-   return [];
+  return [];
 }
 
 export { candyCrush };

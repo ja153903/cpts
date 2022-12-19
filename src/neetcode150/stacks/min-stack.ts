@@ -1,53 +1,53 @@
 type Tuple = { value: number; min: number };
 
 class MinStack {
-   private stack: Tuple[];
+  private stack: Tuple[];
 
-   constructor() {
-      this.stack = [];
-   }
+  constructor() {
+    this.stack = [];
+  }
 
-   push(val: number): void {
-      if (this.isEmpty) {
-         this.stack.push({ value: val, min: val });
-         return;
-      }
+  push(val: number): void {
+    if (this.isEmpty) {
+      this.stack.push({ value: val, min: val });
+      return;
+    }
 
-      const node = { value: val, min: Math.min(this.getMin(), val) };
-      this.stack.push(node);
-   }
+    const node = { value: val, min: Math.min(this.getMin(), val) };
+    this.stack.push(node);
+  }
 
-   pop(): void {
-      this.stack.pop();
-   }
+  pop(): void {
+    this.stack.pop();
+  }
 
-   top(): number {
-      if (this.isEmpty) {
-         return -1;
-      }
+  top(): number {
+    if (this.isEmpty) {
+      return -1;
+    }
 
-      return this._top.value;
-   }
+    return this._top.value;
+  }
 
-   getMin(): number {
-      if (this.isEmpty) {
-         return -1;
-      }
+  getMin(): number {
+    if (this.isEmpty) {
+      return -1;
+    }
 
-      return this._top.min;
-   }
+    return this._top.min;
+  }
 
-   get size() {
-      return this.stack.length;
-   }
+  get size() {
+    return this.stack.length;
+  }
 
-   get _top() {
-      return this.stack[this.size - 1];
-   }
+  get _top() {
+    return this.stack[this.size - 1];
+  }
 
-   get isEmpty() {
-      return this.stack.length === 0;
-   }
+  get isEmpty() {
+    return this.stack.length === 0;
+  }
 }
 
 /**

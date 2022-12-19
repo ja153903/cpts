@@ -1,11 +1,11 @@
 export default class ListNode {
-   val: number;
-   next: ListNode | null;
+  val: number;
+  next: ListNode | null;
 
-   constructor(val?: number, next?: ListNode | null) {
-      this.val = val ?? 0;
-      this.next = next ?? null;
-   }
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val ?? 0;
+    this.next = next ?? null;
+  }
 }
 
 /**
@@ -15,20 +15,20 @@ export default class ListNode {
  * Ex: 1 -> 2 -> 4 will return [1, 2, 4]
  */
 function collect(node: ListNode | null): number[] {
-   const result = [] as number[];
+  const result = [] as number[];
 
-   if (!node) {
-      return result;
-   }
+  if (!node) {
+    return result;
+  }
 
-   let current: ListNode | null = node;
+  let current: ListNode | null = node;
 
-   while (current !== null) {
-      result.push(current.val);
-      current = current.next;
-   }
+  while (current !== null) {
+    result.push(current.val);
+    current = current.next;
+  }
 
-   return result;
+  return result;
 }
 
 export { collect };

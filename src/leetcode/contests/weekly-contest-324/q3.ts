@@ -1,5 +1,5 @@
 function isPossible(n: number, edges: number[][]): boolean {
-   return false;
+  return false;
 }
 
 export { isPossible };

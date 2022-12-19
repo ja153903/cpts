@@ -1,27 +1,27 @@
 function isAnagram(s: string, t: string): boolean {
-   // s and t are all lowercase characters
-   const sFreq = new Array<number>(26).fill(0);
-   for (const ch of s) {
-      const index = ch.charCodeAt(0) - 97;
-      sFreq[index]++;
-   }
+  // s and t are all lowercase characters
+  const sFreq = new Array<number>(26).fill(0);
+  for (const ch of s) {
+    const index = ch.charCodeAt(0) - 97;
+    sFreq[index]++;
+  }
 
-   for (const ch of t) {
-      const index = ch.charCodeAt(0) - 97;
-      if (sFreq[index] === 0) {
-         return false;
-      }
+  for (const ch of t) {
+    const index = ch.charCodeAt(0) - 97;
+    if (sFreq[index] === 0) {
+      return false;
+    }
 
-      sFreq[index]--;
-   }
+    sFreq[index]--;
+  }
 
-   for (const count of sFreq) {
-      if (count !== 0) {
-         return false;
-      }
-   }
+  for (const count of sFreq) {
+    if (count !== 0) {
+      return false;
+    }
+  }
 
-   return true;
+  return true;
 }
 
 export { isAnagram };

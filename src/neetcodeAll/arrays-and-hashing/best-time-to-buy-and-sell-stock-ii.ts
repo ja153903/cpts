@@ -1,16 +1,16 @@
 function maxProfit(prices: number[]): number {
-   let minBuy = prices[0];
-   let profit = 0;
+  let minBuy = prices[0];
+  let profit = 0;
 
-   for (let i = 1; i < prices.length; i++) {
-      if (prices[i] > minBuy) {
-         profit += prices[i] - minBuy;
-      }
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] > minBuy) {
+      profit += prices[i] - minBuy;
+    }
 
-      minBuy = prices[i];
-   }
+    minBuy = prices[i];
+  }
 
-   return profit;
+  return profit;
 }
 
 export { maxProfit };

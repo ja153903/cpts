@@ -4,31 +4,31 @@
 //
 // TODO: This is wrong. Figure out another solution
 function minCost(nums: number[], cost: number[]): number {
-   if (nums.length === 0 || allSame(nums)) {
-      return 0;
-   }
+  if (nums.length === 0 || allSame(nums)) {
+    return 0;
+  }
 
-   const average = Math.floor(nums.reduce((a, b) => a + b) / nums.length);
+  const average = Math.floor(nums.reduce((a, b) => a + b) / nums.length);
 
-   let minCost = 0;
+  let minCost = 0;
 
-   for (let i = 0; i < nums.length; i++) {
-      minCost += Math.abs(average - nums[i]) * cost[i];
-   }
+  for (let i = 0; i < nums.length; i++) {
+    minCost += Math.abs(average - nums[i]) * cost[i];
+  }
 
-   return minCost;
+  return minCost;
 }
 
 function allSame(nums: number[]): boolean {
-   const ref = nums[0];
+  const ref = nums[0];
 
-   for (let i = 1; i < nums.length; i++) {
-      if (ref !== nums[i]) {
-         return false;
-      }
-   }
+  for (let i = 1; i < nums.length; i++) {
+    if (ref !== nums[i]) {
+      return false;
+    }
+  }
 
-   return true;
+  return true;
 }
 
 export { minCost };

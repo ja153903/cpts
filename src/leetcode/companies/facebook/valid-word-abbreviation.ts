@@ -5,52 +5,52 @@
 // if we encounter another letter then we check if our count is non-zero
 // then we can advance the pointer on the word
 function validWordAbbreviation(word: string, abbr: string): boolean {
-   let pointer = 0;
-   let count = 0;
+  let pointer = 0;
+  let count = 0;
 
-   const instructions = new Array<string | number>();
+  const instructions = new Array<string | number>();
 
-   for (const ch of abbr) {
-      if (isDigit(ch)) {
-         // Edge case. Nasty ass problem
-         if (ch === '0' && count === 0) {
-            return false;
-         }
-
-         count = count * 10 + parseInt(ch);
-      } else {
-         if (count > 0) {
-            instructions.push(count);
-            count = 0;
-         }
-
-         instructions.push(ch);
+  for (const ch of abbr) {
+    if (isDigit(ch)) {
+      // Edge case. Nasty ass problem
+      if (ch === '0' && count === 0) {
+        return false;
       }
-   }
 
-   if (count > 0) {
-      instructions.push(count);
-   }
-
-   for (const instruction of instructions) {
-      if (typeof instruction === 'number') {
-         pointer += instruction;
-      } else {
-         if (word[pointer] !== instruction) {
-            return false;
-         }
-
-         pointer++;
+      count = count * 10 + parseInt(ch);
+    } else {
+      if (count > 0) {
+        instructions.push(count);
+        count = 0;
       }
-   }
 
-   return pointer === word.length;
+      instructions.push(ch);
+    }
+  }
+
+  if (count > 0) {
+    instructions.push(count);
+  }
+
+  for (const instruction of instructions) {
+    if (typeof instruction === 'number') {
+      pointer += instruction;
+    } else {
+      if (word[pointer] !== instruction) {
+        return false;
+      }
+
+      pointer++;
+    }
+  }
+
+  return pointer === word.length;
 }
 
 function isDigit(ch: string): boolean {
-   const charCode = ch.charCodeAt(0);
+  const charCode = ch.charCodeAt(0);
 
-   return 48 <= charCode && charCode <= 57;
+  return 48 <= charCode && charCode <= 57;
 }
 
 export { validWordAbbreviation };

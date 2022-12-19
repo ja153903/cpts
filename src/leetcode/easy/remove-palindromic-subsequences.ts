@@ -3,17 +3,17 @@
 // so the idea here is to remove a's with the first operation
 // and then to remove b's with the second operation.
 function removePalindromeSub(s: string): number {
-   if (s.length === 0) {
-      return 0;
-   }
+  if (s.length === 0) {
+    return 0;
+  }
 
-   const reversed = s.split('').reverse().join('');
+  const reversed = s.split('').reverse().join('');
 
-   if (s === reversed) {
-      return 1;
-   }
+  if (s === reversed) {
+    return 1;
+  }
 
-   return 2;
+  return 2;
 }
 
 export { removePalindromeSub };

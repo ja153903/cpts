@@ -16,36 +16,36 @@
  * Return true if and only if it is bipartite.
  */
 function isBipartite(graph: number[][]): boolean {
-   // NOTE: https://leetcode.com/problems/is-graph-bipartite/solutions/127708/is-graph-bipartite/
-   // Graph Coloring is the answer to solving if a graph is bipartite
-   const n = graph.length;
-   const color = new Array<number>(n).fill(-1);
+  // NOTE: https://leetcode.com/problems/is-graph-bipartite/solutions/127708/is-graph-bipartite/
+  // Graph Coloring is the answer to solving if a graph is bipartite
+  const n = graph.length;
+  const color = new Array<number>(n).fill(-1);
 
-   for (let start = 0; start < n; start++) {
-      if (color[start] === -1) {
-         const stack = [];
-         stack.push(start);
-         color[start] = 0;
+  for (let start = 0; start < n; start++) {
+    if (color[start] === -1) {
+      const stack = [];
+      stack.push(start);
+      color[start] = 0;
 
-         while (stack.length) {
-            const node = stack.pop() as number;
-            for (const neighbor of graph[node]) {
-               if (color[neighbor] === -1) {
-                  stack.push(neighbor);
-                  // Flip the color
-                  color[neighbor] = color[node] ^ 1;
-               } else if (color[neighbor] === color[node]) {
-                  // if the color of the current node's neighbor is the same
-                  // as the current node, then we know we can't color it to be
-                  // bipartite
-                  return false;
-               }
-            }
-         }
+      while (stack.length) {
+        const node = stack.pop() as number;
+        for (const neighbor of graph[node]) {
+          if (color[neighbor] === -1) {
+            stack.push(neighbor);
+            // Flip the color
+            color[neighbor] = color[node] ^ 1;
+          } else if (color[neighbor] === color[node]) {
+            // if the color of the current node's neighbor is the same
+            // as the current node, then we know we can't color it to be
+            // bipartite
+            return false;
+          }
+        }
       }
-   }
+    }
+  }
 
-   return true;
+  return true;
 }
 
 export { isBipartite };
