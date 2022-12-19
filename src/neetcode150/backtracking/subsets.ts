@@ -1,22 +1,22 @@
 function subsets(nums: number[]): number[][] {
-  const result: number[][] = [];
+   const result: number[][] = [];
 
-  backtrack(nums, result, [], 0);
+   backtrack(nums, result, [], 0);
 
-  return result;
+   return result;
 }
 
 function backtrack(
-  nums: number[],
-  result: number[][],
-  current: number[],
-  start: number
+   nums: number[],
+   result: number[][],
+   current: number[],
+   start: number
 ) {
-  result.push([...current]);
+   result.push([...current]);
 
-  for (let i = start; i < nums.length; i++) {
-    backtrack(nums, result, current.concat(nums[i]), i + 1);
-  }
+   for (let i = start; i < nums.length; i++) {
+      backtrack(nums, result, current.concat(nums[i]), i + 1);
+   }
 }
 
 export { subsets };

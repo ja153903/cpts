@@ -1,15 +1,15 @@
 function containsDuplicate(nums: number[]): boolean {
-  const uniqueNumbers: Set<number> = new Set();
+   const uniqueNumbers: Set<number> = new Set();
 
-  for (const num of nums) {
-    if (uniqueNumbers.has(num)) {
-      return true;
-    }
+   for (const num of nums) {
+      if (uniqueNumbers.has(num)) {
+         return true;
+      }
 
-    uniqueNumbers.add(num);
-  }
+      uniqueNumbers.add(num);
+   }
 
-  return false;
+   return false;
 }
 
 export { containsDuplicate };

@@ -1,15 +1,15 @@
 import ListNode from '~/leetcode/data-structures/list-node';
 
 function middleNode(head: ListNode | null): ListNode | null {
-  let slow = head;
-  let fast = head;
+   let slow = head;
+   let fast = head;
 
-  while (fast?.next) {
-    slow = slow?.next ?? null;
-    fast = fast?.next?.next ?? null;
-  }
+   while (fast?.next) {
+      slow = slow?.next ?? null;
+      fast = fast?.next?.next ?? null;
+   }
 
-  return slow;
+   return slow;
 }
 
 export { middleNode };

@@ -1,8 +1,8 @@
 // TODO: insert-intervals
 function insert(intervals: number[][], newInterval: number[]): number[][] {
-  const result: number[][] = [];
+   const result: number[][] = [];
 
-  return result;
+   return result;
 }
 
 export { insert };

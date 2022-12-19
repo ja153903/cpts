@@ -1,36 +1,36 @@
 import TreeNode from '~/utility/trees';
 
 function levelOrder(root: TreeNode | null): number[][] {
-  if (!root) {
-    return [];
-  }
+   if (!root) {
+      return [];
+   }
 
-  const result: number[][] = [];
-  const queue: TreeNode[] = [];
+   const result: number[][] = [];
+   const queue: TreeNode[] = [];
 
-  queue.push(root);
+   queue.push(root);
 
-  while (queue.length) {
-    const size = queue.length;
-    const currentLevel: number[] = [];
+   while (queue.length) {
+      const size = queue.length;
+      const currentLevel: number[] = [];
 
-    for (let i = 0; i < size; i++) {
-      const front = queue.shift() as TreeNode;
-      currentLevel.push(front.val);
+      for (let i = 0; i < size; i++) {
+         const front = queue.shift() as TreeNode;
+         currentLevel.push(front.val);
 
-      if (front.left) {
-        queue.push(front.left);
+         if (front.left) {
+            queue.push(front.left);
+         }
+
+         if (front.right) {
+            queue.push(front.right);
+         }
       }
 
-      if (front.right) {
-        queue.push(front.right);
-      }
-    }
+      result.push(currentLevel);
+   }
 
-    result.push(currentLevel);
-  }
-
-  return result;
+   return result;
 }
 
 export { levelOrder };

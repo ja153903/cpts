@@ -1,16 +1,16 @@
 function findBuildings(heights: number[]): number[] {
-  const result = new Array<number>();
+   const result = new Array<number>();
 
-  let maxHeightSoFar = Number.NEGATIVE_INFINITY;
+   let maxHeightSoFar = Number.NEGATIVE_INFINITY;
 
-  for (let i = heights.length - 1; i >= 0; i--) {
-    if (heights[i] > maxHeightSoFar) {
-      result.unshift(i);
-      maxHeightSoFar = heights[i];
-    }
-  }
+   for (let i = heights.length - 1; i >= 0; i--) {
+      if (heights[i] > maxHeightSoFar) {
+         result.unshift(i);
+         maxHeightSoFar = heights[i];
+      }
+   }
 
-  return result;
+   return result;
 }
 
 export { findBuildings };

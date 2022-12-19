@@ -1,15 +1,15 @@
 function repeatedCharacter(s: string): string {
-  const unique: Set<string> = new Set();
+   const unique: Set<string> = new Set();
 
-  for (const ch of s) {
-    if (unique.has(ch)) {
-      return ch;
-    }
+   for (const ch of s) {
+      if (unique.has(ch)) {
+         return ch;
+      }
 
-    unique.add(ch);
-  }
+      unique.add(ch);
+   }
 
-  return '';
+   return '';
 }
 
 export { repeatedCharacter };

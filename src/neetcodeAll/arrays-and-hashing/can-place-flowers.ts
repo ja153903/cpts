@@ -7,27 +7,27 @@
  * the no-adjacent-flowers rule.
  */
 function canPlaceFlowers(flowerbed: number[], n: number): boolean {
-  if (n === 0) {
-    return true;
-  }
+   if (n === 0) {
+      return true;
+   }
 
-  let count = 0;
+   let count = 0;
 
-  for (let i = 0; i < flowerbed.length; i++) {
-    if (flowerbed[i] === 0) {
-      const isLeftEmpty = i === 0 || (i > 0 && flowerbed[i - 1] === 0);
-      const isRightEmpty =
-        i === flowerbed.length - 1 ||
-        (i < flowerbed.length - 1 && flowerbed[i + 1] === 0);
+   for (let i = 0; i < flowerbed.length; i++) {
+      if (flowerbed[i] === 0) {
+         const isLeftEmpty = i === 0 || (i > 0 && flowerbed[i - 1] === 0);
+         const isRightEmpty =
+            i === flowerbed.length - 1 ||
+            (i < flowerbed.length - 1 && flowerbed[i + 1] === 0);
 
-      if (isLeftEmpty && isRightEmpty) {
-        flowerbed[i] = 1;
-        count++;
+         if (isLeftEmpty && isRightEmpty) {
+            flowerbed[i] = 1;
+            count++;
+         }
       }
-    }
-  }
+   }
 
-  return count >= n;
+   return count >= n;
 }
 
 export { canPlaceFlowers };

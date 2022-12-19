@@ -1,35 +1,35 @@
 class LRUCache extends Map {
-  private capacity: number;
+   private capacity: number;
 
-  constructor(capacity: number) {
-    super();
+   constructor(capacity: number) {
+      super();
 
-    this.capacity = capacity;
-  }
+      this.capacity = capacity;
+   }
 
-  get(key: number) {
-    if (!this.has(key)) {
-      return -1;
-    }
+   get(key: number) {
+      if (!this.has(key)) {
+         return -1;
+      }
 
-    const value = super.get(key);
+      const value = super.get(key);
 
-    this.delete(key);
-    this.set(key, value);
+      this.delete(key);
+      this.set(key, value);
 
-    return value;
-  }
+      return value;
+   }
 
-  put(key: number, value: number) {
-    // remove the node if it already exists
-    this.delete(key);
+   put(key: number, value: number) {
+      // remove the node if it already exists
+      this.delete(key);
 
-    this.set(key, value);
+      this.set(key, value);
 
-    if (this.size > this.capacity) {
-      this.delete(this.keys().next().value);
-    }
-  }
+      if (this.size > this.capacity) {
+         this.delete(this.keys().next().value);
+      }
+   }
 }
 
 export { LRUCache };

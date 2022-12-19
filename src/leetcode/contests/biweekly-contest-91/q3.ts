@@ -1,9 +1,9 @@
 function mostProfitablePath(
-  edges: number[][],
-  bob: number,
-  amount: number[]
+   edges: number[][],
+   bob: number,
+   amount: number[]
 ): number {
-  return -1;
+   return -1;
 }
 
 export { mostProfitablePath };

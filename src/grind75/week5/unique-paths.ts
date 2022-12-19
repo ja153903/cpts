@@ -11,30 +11,30 @@
  * @param n
  */
 function uniquePaths(m: number, n: number): number {
-  // dp[i][j] ~ the number of unique paths up to i,j
-  // this means that we can say that dp[0][0] = 1
-  // we can say the same about the row and columns
-  const dp = new Array<Array<number>>();
-  for (let i = 0; i < m; i++) {
-    dp.push(new Array<number>(n).fill(0));
-  }
+   // dp[i][j] ~ the number of unique paths up to i,j
+   // this means that we can say that dp[0][0] = 1
+   // we can say the same about the row and columns
+   const dp = new Array<Array<number>>();
+   for (let i = 0; i < m; i++) {
+      dp.push(new Array<number>(n).fill(0));
+   }
 
-  for (let i = 0; i < m; i++) {
-    dp[i][0] = 1;
-  }
+   for (let i = 0; i < m; i++) {
+      dp[i][0] = 1;
+   }
 
-  for (let i = 1; i < n; i++) {
-    dp[0][i] = 1;
-  }
+   for (let i = 1; i < n; i++) {
+      dp[0][i] = 1;
+   }
 
-  for (let i = 1; i < m; i++) {
-    for (let j = 1; j < n; j++) {
-      // the number of unique paths is the sum of the previous paths
-      dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
-    }
-  }
+   for (let i = 1; i < m; i++) {
+      for (let j = 1; j < n; j++) {
+         // the number of unique paths is the sum of the previous paths
+         dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+      }
+   }
 
-  return dp[m - 1][n - 1];
+   return dp[m - 1][n - 1];
 }
 
 export { uniquePaths };
