@@ -1,3 +1,4 @@
+// TODO: I don't understand how to use bitmasking for this problem
 function assignBikes(workers: number[][], bikes: number[][]): number {
   // for this problem, we might want to consider enumerating all possible pairings
   // of bike to worker
